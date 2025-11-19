@@ -115,7 +115,7 @@ public:
         if (ptr == nullptr){
             throw new std::runtime_error("");
         }
-        return ptr; // Placeholder
+        return ptr;
     }
 
     // ========== OWNERSHIP MANAGEMENT ==========

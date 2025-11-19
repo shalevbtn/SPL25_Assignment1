@@ -3,10 +3,7 @@
 #include <iostream>
 #include <algorithm>
 
-PlaylistNode::~PlaylistNode() { delete track; }
-
-Playlist::Playlist(const std::string& name) 
-    : head(nullptr), playlist_name(name), track_count(0) {
+Playlist::Playlist(const std::string& name) : head(nullptr), playlist_name(name), track_count(0) {
     std::cout << "Created playlist: " << name << std::endl;
 }
 
@@ -22,6 +19,7 @@ Playlist::~Playlist() {
     
     while(curr != nullptr) {
         next = curr->next;
+        delete curr->track;
         delete curr;
         curr = next;
     }
@@ -63,6 +61,7 @@ void Playlist::remove_track(const std::string& title) {
         } else {
             head = current->next;
         }
+        delete current->track;
         delete current;
         track_count--;
         std::cout << "Removed '" << title << "' from playlist" << std::endl;
