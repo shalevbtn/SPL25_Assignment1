@@ -7,16 +7,24 @@
  * TODO: Implement MixingEngineService constructor
  */
 MixingEngineService::MixingEngineService()
-    : active_deck(0)
+    : active_deck(0), auto_sync(false), bpm_tolerance(0)
 {
-    // Your implementation here
+    decks[0] = nullptr;
+    decks[1] = nullptr;
+    std::cout << "[MixingEngineService] Initialized with 2 empty decks." << std::endl;
 }
 
 /**
  * TODO: Implement MixingEngineService destructor
  */
 MixingEngineService::~MixingEngineService() {
-    // Your implementation here
+    std::cout << "[MixingEngineService] Cleaning up decks...." << std::endl;
+    for(auto& deck : decks) {
+        if(deck != nullptr) {
+            delete deck;
+            deck = nullptr;
+        }
+    }
 }
 
 
@@ -26,8 +34,29 @@ MixingEngineService::~MixingEngineService() {
  * @return: Index of the deck where track was loaded, or -1 on failure
  */
 int MixingEngineService::loadTrackToDeck(const AudioTrack& track) {
-    // Your implementation here
-    return -1; // Placeholder
+    std::cout << "\n=== Loading Track to Deck ===\n";
+    PointerWrapper<AudioTrack> track_ptr = track.clone();
+
+
+    // First Track
+    if(decks[0] == nullptr && decks[1] == nullptr) {
+        decks[0] = track_ptr.get();
+    }
+
+    //Subsequent Tracks - Instant Transition Pattern:
+
+    size_t target_deck = 1 - active_deck;
+    std::cout << "\n[Deck Switch] Target deck: " << target_deck;
+    if(decks[target_deck] != nullptr) {
+        delete decks[target_deck];
+        decks[0] = nullptr;
+    }
+    track_ptr->load();
+    track_ptr->analyze_beatgrid();
+
+    if(decks[active_deck] != nullptr && auto_sync) {
+        
+    }
 }
 
 /**
