@@ -32,31 +32,47 @@ MixingEngineService::~MixingEngineService() {
  * TODO: Implement loadTrackToDeck method
  * @param track: Reference to the track to be loaded
  * @return: Index of the deck where track was loaded, or -1 on failure
+ * TO CHECK
  */
 int MixingEngineService::loadTrackToDeck(const AudioTrack& track) {
     std::cout << "\n=== Loading Track to Deck ===\n";
-    PointerWrapper<AudioTrack> track_ptr = track.clone();
 
+    PointerWrapper<AudioTrack> track_ptr = track.clone(); ;
 
-    // First Track
-    if(decks[0] == nullptr && decks[1] == nullptr) {
-        decks[0] = track_ptr.get();
+    if (!track_ptr) {
+        std::cerr << "[ERROR] Track: " << track.get_title() << " failed to clone";
+        return -1;
     }
 
-    //Subsequent Tracks - Instant Transition Pattern:
-
-    size_t target_deck = 1 - active_deck;
+    size_t target_deck = 1 - active_deck; 
+ 
     std::cout << "\n[Deck Switch] Target deck: " << target_deck;
     if(decks[target_deck] != nullptr) {
         delete decks[target_deck];
-        decks[0] = nullptr;
+        decks[target_deck] = nullptr;
     }
+
     track_ptr->load();
     track_ptr->analyze_beatgrid();
 
-    if(decks[active_deck] != nullptr && auto_sync) {
-        
+    if(decks[active_deck] != nullptr && auto_sync && !can_mix_tracks(track_ptr))
+        sync_bpm(track_ptr);
+
+
+    decks[target_deck] = track_ptr.get();
+    track_ptr.release();
+
+    std::cout << "\n[Load Complete] " << track.get_title() << " is now loaded on deck " << target_deck;
+
+    if(decks[active_deck] != nullptr) {
+        std::cout << "\n[Unload] Unloading previous deck " << active_deck << "(" << decks[active_deck]->get_title() << ")";
+        delete decks[active_deck];
+        decks[active_deck] = nullptr;
     }
+
+    active_deck = target_deck;
+    std::cout << "\n[Active Deck] Switched to deck " << target_deck;
+    return target_deck;
 }
 
 /**
@@ -83,8 +99,16 @@ void MixingEngineService::displayDeckStatus() const {
  * @return: true if BPM difference <= tolerance, false otherwise
  */
 bool MixingEngineService::can_mix_tracks(const PointerWrapper<AudioTrack>& track) const {
-    // Your implementation here
-    return false; // Placeholder
+    if(decks[active_deck] == nullptr || track.get() != nullptr)
+        return false;
+
+    int bpm_diff = std::abs(decks[active_deck]->get_bpm() - track->get_bpm());
+
+    if(bpm_diff > bpm_tolerance)
+        return false;
+    
+    return true;
+    
 }
 
 /**
@@ -92,5 +116,10 @@ bool MixingEngineService::can_mix_tracks(const PointerWrapper<AudioTrack>& track
  * @param track: Track to synchronize with active deck
  */
 void MixingEngineService::sync_bpm(const PointerWrapper<AudioTrack>& track) const {
-    // Your implementation here
+    if(decks[active_deck] != nullptr && track.get() != nullptr) {
+        int track_prev_bpm = track->get_bpm();
+        int new_bpm = (decks[active_deck]->get_bpm() + track_prev_bpm) / 2;
+        track->set_bpm(new_bpm);
+        std::cout << "[Sync BPM] Syncing BPM from " << track_prev_bpm << " to " << new_bpm;
+    }
 }
