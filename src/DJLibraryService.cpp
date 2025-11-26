@@ -7,8 +7,14 @@
 #include <filesystem>
 
 
-DJLibraryService::DJLibraryService(const Playlist& playlist) 
-    : playlist(playlist) {}
+DJLibraryService::DJLibraryService(const Playlist& playlist) : playlist(playlist), library() {}
+
+DJLibraryService::~DJLibraryService() {
+    for(AudioTrack* at : library) {
+        delete at;
+    }
+}
+
 /**
  * @brief Load a playlist from track indices referencing the library
  * @param library_tracks Vector of track info from config
@@ -77,7 +83,7 @@ void DJLibraryService::loadPlaylistFromIndices(const std::string& playlist_name,
     std::cout << "[INFO] Loading playlist: " << playlist_name << std::endl;
     Playlist p(playlist_name);
     for (int i : track_indices){
-        if (i < 1 || i > library.size()){
+        if (i < 1 || i > static_cast<int>(track_indices.size())){
             std::cout << "[WARNING] Invalid track index: " << i << std::endl;
         }
         else{
