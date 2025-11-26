@@ -105,10 +105,11 @@ void DJLibraryService::loadPlaylistFromIndices(const std::string& playlist_name,
  * @return Vector of track titles in the playlist
  */
 std::vector<std::string> DJLibraryService::getTrackTitles() const {
-    // Your implementation here
-    std::vector<std::string>* v = new std::vector<std::string>();
+    std::vector<std::string> v;
+
     for(AudioTrack* at: playlist.getTracks()){
-        v->push_back(at->get_title());
+        v.push_back(at->get_title());
     }
-    return *v; // Placeholder
+    
+    return v; 
 }

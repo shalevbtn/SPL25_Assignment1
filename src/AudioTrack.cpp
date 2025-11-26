@@ -5,7 +5,7 @@
 
 AudioTrack::AudioTrack(const std::string& title, const std::vector<std::string>& artists, 
                       int duration, int bpm, size_t waveform_samples)
-    : title(title), artists(artists), duration_seconds(duration), bpm(bpm), 
+    : title(title), artists(artists), duration_seconds(duration), bpm(bpm), waveform_data(),
       waveform_size(waveform_samples) {
 
     // Allocate memory for waveform analysis
@@ -41,6 +41,8 @@ AudioTrack::~AudioTrack() {
 }
 
 AudioTrack::AudioTrack(const AudioTrack& other)
+    : title(other.title), artists(other.artists), duration_seconds(other.duration_seconds),
+     bpm(other.bpm), waveform_data(), waveform_size(other.waveform_size)
 {
     // TODO: Implement the copy constructor
     #ifdef DEBUG
@@ -48,12 +50,12 @@ AudioTrack::AudioTrack(const AudioTrack& other)
     #endif
     
     
-    title = other.title; 
+    /*title = other.title; 
     artists = other.artists;
     duration_seconds = other.duration_seconds;
     bpm = other.bpm; 
     waveform_size = other.waveform_size;
-    waveform_data = new double[waveform_size];
+    waveform_data = new double[waveform_size];*/
     other.get_waveform_copy(waveform_data, waveform_size);
     
 }

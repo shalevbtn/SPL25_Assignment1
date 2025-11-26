@@ -62,7 +62,7 @@ public:
      * HINT: How should ownership transfer from one wrapper to another?
      * What should happen to the source wrapper after the move?
      */
-    PointerWrapper(PointerWrapper&& other) noexcept {
+    PointerWrapper(PointerWrapper&& other) noexcept : ptr() {
         ptr = other.ptr;
         other.ptr = nullptr;
     }
