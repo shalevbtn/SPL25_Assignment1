@@ -52,6 +52,10 @@ private:
         size_t errors = 0;
     } stats;
 
+    //TO CHECK
+    //My function
+    void handle_playlist();
+
 public:
     // ========== CONSTRUCTORS & DESTRUCTOR ==========
 

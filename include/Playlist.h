@@ -40,6 +40,13 @@ public:
      */
     ~Playlist();
 
+
+    Playlist(const Playlist& other);
+    Playlist& operator=(const Playlist& other) = delete;
+    
+    Playlist(Playlist&& other) noexcept;
+    Playlist& operator=(Playlist&& other) noexcept;
+
     /**
      * Add a track to the playlist
      * @param track Pointer to AudioTrack to add

@@ -25,6 +25,52 @@ Playlist::~Playlist() {
     }
 }
 
+Playlist::Playlist(const Playlist& other) 
+    : head(nullptr), playlist_name(other.playlist_name), track_count(0) 
+{
+    PlaylistNode* currentSource = other.head;
+    
+    while (currentSource != nullptr) {
+        PointerWrapper<AudioTrack> clonedWrapper = currentSource->track->clone();
+
+        if (clonedWrapper.get() != nullptr) 
+             this->add_track(clonedWrapper.release());
+             
+        currentSource = currentSource->next;
+    }
+}
+
+Playlist::Playlist(Playlist&& other) noexcept
+    : head(other.head), playlist_name(std::move(other.playlist_name)), track_count(other.track_count) 
+{ 
+    other.head = nullptr;
+    other.track_count = 0;
+}
+
+Playlist& Playlist::operator=(Playlist&& other) noexcept 
+{
+    if(this != &other) {
+
+        PlaylistNode* next = nullptr;
+        PlaylistNode* curr = head;
+    
+        while(curr != nullptr) {
+            next = curr->next;
+            delete curr->track;
+            delete curr;
+            curr = next;
+        }
+
+        head = other.head;
+        playlist_name = other.playlist_name;
+        track_count = other.track_count;
+
+        other.head = nullptr;
+        track_count = 0;
+    }
+
+    return *this;
+}
 
 void Playlist::add_track(AudioTrack* track) {
     if (!track) {
