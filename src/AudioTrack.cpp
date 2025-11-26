@@ -49,19 +49,12 @@ AudioTrack::AudioTrack(const AudioTrack& other)
     std::cout << "AudioTrack copy constructor called for: " << other.title << std::endl;
     #endif
     
-    
-    /*title = other.title; 
-    artists = other.artists;
-    duration_seconds = other.duration_seconds;
-    bpm = other.bpm; 
-    waveform_size = other.waveform_size;
-    waveform_data = new double[waveform_size];*/
     other.get_waveform_copy(waveform_data, waveform_size);
     
 }
 
 AudioTrack& AudioTrack::operator=(const AudioTrack& other) {
-    // TODO: Implement the copy assignment operator
+
     #ifdef DEBUG
     std::cout << "AudioTrack copy assignment called for: " << other.title << std::endl;
     #endif
@@ -89,21 +82,16 @@ AudioTrack::AudioTrack(AudioTrack&& other) noexcept
     std::cout << "AudioTrack move constructor called for: " << other.title << std::endl;
     #endif
     
-    title = other.title; 
-    artists = other.artists;
-    duration_seconds = other.duration_seconds;
-    bpm = other.bpm; 
-    waveform_size = other.waveform_size;
     waveform_data = other.waveform_data;
     other.waveform_data = nullptr;
 }
 
 AudioTrack& AudioTrack::operator=(AudioTrack&& other) noexcept {
-    // TODO: Implement the move assignment operator
 
     #ifdef DEBUG
     std::cout << "AudioTrack move assignment called for: " << other.title << std::endl;
     #endif
+    
     if(this != &other) {
         title = other.title; 
         artists = other.artists;

@@ -133,6 +133,7 @@ bool DJSession::load_track_to_mixer_deck(const std::string& track_title) {
     return true;
 }
 
+
 /**
  * @brief Main simulation loop that orchestrates the DJ performance session.
  * @note Updates session statistics (stats) throughout processing
@@ -187,8 +188,6 @@ void DJSession::simulate_dj_performance() {
 
     std::cout << "Session cancelled by user or all playlists played." << std::endl;
 }
-
-
 
 /* 
  * Helper method to load session configuration from file
@@ -276,7 +275,6 @@ void DJSession::print_session_summary() const {
     std::cout << "Errors: " << stats.errors << std::endl;
     std::cout << "=== Session Complete ===" << std::endl;
 }
-
 
 void DJSession::handle_playlist() {
     for(const auto& track_title : track_titles) {

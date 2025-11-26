@@ -41,9 +41,11 @@ public:
     ~Playlist();
 
 
-    /*//Adding those to solve some of the warnings.
-    Playlist(const Playlist&) = delete;
-    Playlist& operator=(const Playlist&) = delete;*/
+    Playlist(const Playlist& other);
+    Playlist& operator=(const Playlist& other) = delete;
+    
+    Playlist(Playlist&& other) noexcept;
+    Playlist& operator=(Playlist&& other) noexcept;
 
     /**
      * Add a track to the playlist
