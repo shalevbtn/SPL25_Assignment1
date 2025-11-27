@@ -19,6 +19,12 @@ public:
     ~DJLibraryService();
 
 
+    //Rule of 3.
+    DJLibraryService(DJLibraryService& other) = delete;
+    DJLibraryService& operator=(DJLibraryService& other) = delete;
+    
+
+
     /**
      * @brief Build the track library from parsed config data
      * @param library_tracks Vector of track info from config
