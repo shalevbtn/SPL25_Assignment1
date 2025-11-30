@@ -15,13 +15,17 @@ int DJControllerService::loadTrackToCache(AudioTrack& track) {
         return 1;
     }
 
-    PointerWrapper<AudioTrack> new_track = track.clone(); //TO CHECK
+    PointerWrapper<AudioTrack> new_track = track.clone(); 
+
     if(new_track.get() == nullptr) {
-        std::cout << "[ERROR] Track: " << track.get_title(); //TO CHECK
+        std::cout << "[ERROR] Track: " << track.get_title(); 
         return 0;
     }
 
-    if(cache.put(std::move(new_track))) { //TO CHECK
+    new_track->load();
+    new_track->analyze_beatgrid();
+
+    if(cache.put(std::move(new_track))) { 
         return -1;
     }
     return 0;

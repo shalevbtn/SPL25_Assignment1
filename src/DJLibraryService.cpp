@@ -20,17 +20,13 @@ DJLibraryService::~DJLibraryService() {
  * @param library_tracks Vector of track info from config
  */
 void DJLibraryService::buildLibrary(const std::vector<SessionConfig::TrackInfo>& library_tracks) {
-    //Todo: Implement buildLibrary method
-    std::cout << "TODO: Implement DJLibraryService::buildLibrary method\n"<< library_tracks.size() << " tracks to be loaded into library.\n";
     for(SessionConfig::TrackInfo ti : library_tracks){
         AudioTrack* at;
         if (ti.type == "MP3"){
             at = new MP3Track(ti.title, ti.artists, ti.duration_seconds, ti.bpm, ti.extra_param1, ti.extra_param2);
-            std::cout << "MP3Track created: " << ti.extra_param1 << " kbps" << std::endl;
         }
         else{
             at = new WAVTrack(ti.title, ti.artists, ti.duration_seconds, ti.bpm, ti.extra_param1, ti.extra_param2);
-            std::cout << "WAVTrack created: " << ti.extra_param1 << "Hz/" << ti.extra_param2 << "bit" << std::endl;
         }
         library.push_back(at);
     }
@@ -93,14 +89,15 @@ void DJLibraryService::loadPlaylistFromIndices(const std::string& playlist_name,
                 std::cout<< "[ERROR] Track Clone Failed Could not clone track at index " << i << std::endl;
             }
             else{
+                std::string track_title = pw->get_title();
                 pw->load();
                 pw->analyze_beatgrid();
                 playlist.add_track(pw.release());
-                std::cout << "Added '" << pw->get_title() << "' to playlist '" << playlist_name << "'" << std::endl;
+                std::cout << "Added '" << track_title << "' to playlist '" << playlist_name << "'" << std::endl;
             }
         }
     }
-    std::cout << "[INFO] Playlist loaded: " << playlist_name << " (" << track_indices.size() << " tracks" << std::endl;
+    std::cout << "[INFO] Playlist loaded: " << playlist_name << " (" << track_indices.size() << " tracks)" << std::endl;
 }
 
 

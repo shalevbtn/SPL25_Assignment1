@@ -54,7 +54,7 @@ private:
 
     //TO CHECK
     //My function
-    void handle_playlist();
+    void handle_playlist(std::string playlist_name);
 
 public:
     // ========== CONSTRUCTORS & DESTRUCTOR ==========
