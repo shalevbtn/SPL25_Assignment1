@@ -37,7 +37,7 @@ MixingEngineService::~MixingEngineService() {
 int MixingEngineService::loadTrackToDeck(const AudioTrack& track) {
     std::cout << "\n=== Loading Track to Deck ===\n";
 
-    PointerWrapper<AudioTrack> track_ptr = track.clone(); ;
+    PointerWrapper<AudioTrack> track_ptr = track.clone();
 
     if (!track_ptr) {
         std::cerr << "[ERROR] Track: " << track.get_title() << " failed to clone" << std::endl;
@@ -47,6 +47,7 @@ int MixingEngineService::loadTrackToDeck(const AudioTrack& track) {
     size_t target_deck = 1 - active_deck; 
  
     std::cout << "[Deck Switch] Target deck: " << target_deck << std::endl;
+
     if(decks[target_deck] != nullptr) {
         delete decks[target_deck];
         decks[target_deck] = nullptr;
