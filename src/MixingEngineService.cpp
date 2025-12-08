@@ -58,6 +58,9 @@ int MixingEngineService::loadTrackToDeck(const AudioTrack& track) {
     if(decks[active_deck] != nullptr && auto_sync && !can_mix_tracks(track_ptr)) {
         sync_bpm(track_ptr);
     }
+    else {
+        std::cout << "[Sync BPM] Cannot sync - one of the decks is empty." << std::endl;
+    }
 
 
     decks[target_deck] = track_ptr.get();
@@ -122,8 +125,5 @@ void MixingEngineService::sync_bpm(const PointerWrapper<AudioTrack>& track) cons
         int new_bpm = (decks[active_deck]->get_bpm() + track_prev_bpm) / 2;
         track->set_bpm(new_bpm);
         std::cout << "[Sync BPM] Syncing BPM from " << track_prev_bpm << " to " << new_bpm << std::endl;
-    }
-    else {
-        std::cout << "[Sync BPM] Cannot sync - one of the decks is empty." << std::endl;
     }
 }

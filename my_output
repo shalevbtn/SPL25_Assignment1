@@ -58,7 +58,7 @@ Added '9PM (Till I Come)' to playlist 'progressive_house'
 
 === Cache Status ===
 [LRUCache] Status: 1/3 slots used
-  Slot 0: Silence (last access: 0)
+  Slot 0: Silence (last access: 1)
   Slot 1: [EMPTY]
   Slot 2: [EMPTY]
 ====================
@@ -72,6 +72,7 @@ Added '9PM (Till I Come)' to playlist 'progressive_house'
   → Load complete.
 [MP3Track::analyze_beatgrid] Analyzing beat grid for: "Silence"
   → Estimated beats: 840  → Compression precision factor: 0.6
+[Sync BPM] Cannot sync - one of the decks is empty.
 [Load Complete] 'Silence' is now loaded on deck 0
 [Active Deck] Switched to deck 0
 
@@ -91,8 +92,8 @@ Active Deck: 0
 
 === Cache Status ===
 [LRUCache] Status: 2/3 slots used
-  Slot 0: Silence (last access: 1)
-  Slot 1: For An Angel (last access: 1)
+  Slot 0: Silence (last access: 2)
+  Slot 1: For An Angel (last access: 3)
   Slot 2: [EMPTY]
 ====================
 [System] Delegating track transfer to MixingEngineService for: For An Angel
@@ -104,6 +105,7 @@ Active Deck: 0
   → Fast loading due to uncompressed format.
 [WAVTrack::analyze_beatgrid] Analyzing beat grid for: "For An Angel"
   → Estimated beats: 945  → Precision factor: 1 (uncompressed audio)
+[Sync BPM] Cannot sync - one of the decks is empty.
 [Load Complete] 'For An Angel' is now loaded on deck 1
 [Active Deck] Switched to deck 1
 
@@ -124,9 +126,9 @@ Active Deck: 1
 
 === Cache Status ===
 [LRUCache] Status: 3/3 slots used
-  Slot 0: Silence (last access: 1)
-  Slot 1: For An Angel (last access: 2)
-  Slot 2: 9PM (Till I Come) (last access: 2)
+  Slot 0: Silence (last access: 2)
+  Slot 1: For An Angel (last access: 4)
+  Slot 2: 9PM (Till I Come) (last access: 5)
 ====================
 [System] Delegating track transfer to MixingEngineService for: 9PM (Till I Come)
 
@@ -138,6 +140,7 @@ Active Deck: 1
   → Load complete.
 [MP3Track::analyze_beatgrid] Analyzing beat grid for: "9PM (Till I Come)"
   → Estimated beats: 750  → Compression precision factor: 1
+[Sync BPM] Cannot sync - one of the decks is empty.
 [Load Complete] '9PM (Till I Come)' is now loaded on deck 0
 [Active Deck] Switched to deck 0
 
@@ -201,9 +204,9 @@ Added 'For An Angel' to playlist 'test_playlist'
 
 === Cache Status ===
 [LRUCache] Status: 3/3 slots used
-  Slot 0: Silence (last access: 4)
-  Slot 1: For An Angel (last access: 2)
-  Slot 2: 9PM (Till I Come) (last access: 3)
+  Slot 0: Silence (last access: 7)
+  Slot 1: For An Angel (last access: 4)
+  Slot 2: 9PM (Till I Come) (last access: 6)
 ====================
 [System] Delegating track transfer to MixingEngineService for: Silence
 
@@ -230,9 +233,9 @@ Active Deck: 1
 
 === Cache Status ===
 [LRUCache] Status: 3/3 slots used
-  Slot 0: Silence (last access: 5)
-  Slot 1: For An Angel (last access: 6)
-  Slot 2: 9PM (Till I Come) (last access: 3)
+  Slot 0: Silence (last access: 8)
+  Slot 1: For An Angel (last access: 9)
+  Slot 2: 9PM (Till I Come) (last access: 6)
 ====================
 [System] Delegating track transfer to MixingEngineService for: For An Angel
 
@@ -243,6 +246,7 @@ Active Deck: 1
   → Fast loading due to uncompressed format.
 [WAVTrack::analyze_beatgrid] Analyzing beat grid for: "For An Angel"
   → Estimated beats: 945  → Precision factor: 1 (uncompressed audio)
+[Sync BPM] Cannot sync - one of the decks is empty.
 [Load Complete] 'For An Angel' is now loaded on deck 0
 [Active Deck] Switched to deck 0
 
@@ -257,9 +261,9 @@ Active Deck: 0
 
 === Cache Status ===
 [LRUCache] Status: 3/3 slots used
-  Slot 0: Silence (last access: 5)
-  Slot 1: For An Angel (last access: 7)
-  Slot 2: 9PM (Till I Come) (last access: 8)
+  Slot 0: Silence (last access: 8)
+  Slot 1: For An Angel (last access: 10)
+  Slot 2: 9PM (Till I Come) (last access: 11)
 ====================
 [System] Delegating track transfer to MixingEngineService for: 9PM (Till I Come)
 
@@ -271,6 +275,7 @@ Active Deck: 0
   → Load complete.
 [MP3Track::analyze_beatgrid] Analyzing beat grid for: "9PM (Till I Come)"
   → Estimated beats: 750  → Compression precision factor: 1
+[Sync BPM] Cannot sync - one of the decks is empty.
 [Load Complete] '9PM (Till I Come)' is now loaded on deck 1
 [Active Deck] Switched to deck 1
 
@@ -285,9 +290,9 @@ Active Deck: 1
 
 === Cache Status ===
 [LRUCache] Status: 3/3 slots used
-  Slot 0: Silence (last access: 10)
-  Slot 1: For An Angel (last access: 7)
-  Slot 2: 9PM (Till I Come) (last access: 9)
+  Slot 0: Silence (last access: 13)
+  Slot 1: For An Angel (last access: 10)
+  Slot 2: 9PM (Till I Come) (last access: 12)
 ====================
 [System] Delegating track transfer to MixingEngineService for: Silence
 
@@ -314,9 +319,9 @@ Active Deck: 0
 
 === Cache Status ===
 [LRUCache] Status: 3/3 slots used
-  Slot 0: Silence (last access: 11)
-  Slot 1: For An Angel (last access: 12)
-  Slot 2: 9PM (Till I Come) (last access: 9)
+  Slot 0: Silence (last access: 14)
+  Slot 1: For An Angel (last access: 15)
+  Slot 2: 9PM (Till I Come) (last access: 12)
 ====================
 [System] Delegating track transfer to MixingEngineService for: For An Angel
 
@@ -327,6 +332,7 @@ Active Deck: 0
   → Fast loading due to uncompressed format.
 [WAVTrack::analyze_beatgrid] Analyzing beat grid for: "For An Angel"
   → Estimated beats: 945  → Precision factor: 1 (uncompressed audio)
+[Sync BPM] Cannot sync - one of the decks is empty.
 [Load Complete] 'For An Angel' is now loaded on deck 1
 [Active Deck] Switched to deck 1
 
@@ -370,9 +376,9 @@ Added 'Silence' to playlist 'trance_classics'
 
 === Cache Status ===
 [LRUCache] Status: 3/3 slots used
-  Slot 0: Silence (last access: 11)
-  Slot 1: For An Angel (last access: 14)
-  Slot 2: 9PM (Till I Come) (last access: 9)
+  Slot 0: Silence (last access: 14)
+  Slot 1: For An Angel (last access: 17)
+  Slot 2: 9PM (Till I Come) (last access: 12)
 ====================
 [System] Delegating track transfer to MixingEngineService for: For An Angel
 
@@ -383,6 +389,7 @@ Added 'Silence' to playlist 'trance_classics'
   → Fast loading due to uncompressed format.
 [WAVTrack::analyze_beatgrid] Analyzing beat grid for: "For An Angel"
   → Estimated beats: 945  → Precision factor: 1 (uncompressed audio)
+[Sync BPM] Cannot sync - one of the decks is empty.
 [Load Complete] 'For An Angel' is now loaded on deck 0
 [Active Deck] Switched to deck 0
 
@@ -397,9 +404,9 @@ Active Deck: 0
 
 === Cache Status ===
 [LRUCache] Status: 3/3 slots used
-  Slot 0: Silence (last access: 16)
-  Slot 1: For An Angel (last access: 15)
-  Slot 2: 9PM (Till I Come) (last access: 9)
+  Slot 0: Silence (last access: 19)
+  Slot 1: For An Angel (last access: 18)
+  Slot 2: 9PM (Till I Come) (last access: 12)
 ====================
 [System] Delegating track transfer to MixingEngineService for: Silence
 
@@ -411,6 +418,7 @@ Active Deck: 0
   → Load complete.
 [MP3Track::analyze_beatgrid] Analyzing beat grid for: "Silence"
   → Estimated beats: 840  → Compression precision factor: 0.6
+[Sync BPM] Cannot sync - one of the decks is empty.
 [Load Complete] 'Silence' is now loaded on deck 1
 [Active Deck] Switched to deck 1
 

@@ -22,8 +22,10 @@ bool LRUCache::put(PointerWrapper<AudioTrack> track) {
         return false;
 
     size_t index = findSlot(track->get_title());
+    access_counter++;
+    
     if(index != max_size) {
-        slots[index].access(++access_counter); //TO CHECK
+        slots[index].access(access_counter); //TO CHECK
         return false;
     }
 
@@ -31,7 +33,7 @@ bool LRUCache::put(PointerWrapper<AudioTrack> track) {
         evictLRU();
     
     size_t new_slot_index = findEmptySlot();
-    slots[new_slot_index].store(std::move(track), access_counter);
+    slots[new_slot_index].store(std::move(track), access_counter); //TO CHECK
     return true;
 }
 
