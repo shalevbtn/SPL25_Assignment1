@@ -287,6 +287,8 @@ void DJSession::handle_playlist(std::string playlist_name) {
     if(!load_playlist(playlist_name))
         std::cerr << "[ERROR] Failed to load playlist named: " << playlist_name << std::endl;
     
+    std::reverse(track_titles.begin(), track_titles.end());
+    
     for(const auto& track_title : track_titles) {
         std::cout << "\n--- Processing: " << track_title << " ---" << std::endl;
         stats.tracks_processed++;
