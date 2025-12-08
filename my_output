@@ -72,7 +72,6 @@ Added '9PM (Till I Come)' to playlist 'progressive_house'
   → Load complete.
 [MP3Track::analyze_beatgrid] Analyzing beat grid for: "Silence"
   → Estimated beats: 840  → Compression precision factor: 0.6
-[Sync BPM] Cannot sync - one of the decks is empty.
 [Load Complete] 'Silence' is now loaded on deck 0
 [Active Deck] Switched to deck 0
 
@@ -105,7 +104,6 @@ Active Deck: 0
   → Fast loading due to uncompressed format.
 [WAVTrack::analyze_beatgrid] Analyzing beat grid for: "For An Angel"
   → Estimated beats: 945  → Precision factor: 1 (uncompressed audio)
-[Sync BPM] Cannot sync - one of the decks is empty.
 [Load Complete] 'For An Angel' is now loaded on deck 1
 [Active Deck] Switched to deck 1
 
@@ -140,7 +138,6 @@ Active Deck: 1
   → Load complete.
 [MP3Track::analyze_beatgrid] Analyzing beat grid for: "9PM (Till I Come)"
   → Estimated beats: 750  → Compression precision factor: 1
-[Sync BPM] Cannot sync - one of the decks is empty.
 [Load Complete] '9PM (Till I Come)' is now loaded on deck 0
 [Active Deck] Switched to deck 0
 
@@ -246,7 +243,6 @@ Active Deck: 1
   → Fast loading due to uncompressed format.
 [WAVTrack::analyze_beatgrid] Analyzing beat grid for: "For An Angel"
   → Estimated beats: 945  → Precision factor: 1 (uncompressed audio)
-[Sync BPM] Cannot sync - one of the decks is empty.
 [Load Complete] 'For An Angel' is now loaded on deck 0
 [Active Deck] Switched to deck 0
 
@@ -275,7 +271,6 @@ Active Deck: 0
   → Load complete.
 [MP3Track::analyze_beatgrid] Analyzing beat grid for: "9PM (Till I Come)"
   → Estimated beats: 750  → Compression precision factor: 1
-[Sync BPM] Cannot sync - one of the decks is empty.
 [Load Complete] '9PM (Till I Come)' is now loaded on deck 1
 [Active Deck] Switched to deck 1
 
@@ -332,7 +327,6 @@ Active Deck: 0
   → Fast loading due to uncompressed format.
 [WAVTrack::analyze_beatgrid] Analyzing beat grid for: "For An Angel"
   → Estimated beats: 945  → Precision factor: 1 (uncompressed audio)
-[Sync BPM] Cannot sync - one of the decks is empty.
 [Load Complete] 'For An Angel' is now loaded on deck 1
 [Active Deck] Switched to deck 1
 
@@ -389,7 +383,6 @@ Added 'Silence' to playlist 'trance_classics'
   → Fast loading due to uncompressed format.
 [WAVTrack::analyze_beatgrid] Analyzing beat grid for: "For An Angel"
   → Estimated beats: 945  → Precision factor: 1 (uncompressed audio)
-[Sync BPM] Cannot sync - one of the decks is empty.
 [Load Complete] 'For An Angel' is now loaded on deck 0
 [Active Deck] Switched to deck 0
 
@@ -418,7 +411,6 @@ Active Deck: 0
   → Load complete.
 [MP3Track::analyze_beatgrid] Analyzing beat grid for: "Silence"
   → Estimated beats: 840  → Compression precision factor: 0.6
-[Sync BPM] Cannot sync - one of the decks is empty.
 [Load Complete] 'Silence' is now loaded on deck 1
 [Active Deck] Switched to deck 1
 
