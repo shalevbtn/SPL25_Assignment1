@@ -25,16 +25,18 @@ bool LRUCache::put(PointerWrapper<AudioTrack> track) {
     access_counter++;
     
     if(index != max_size) {
-        slots[index].access(access_counter); //TO CHECK
+        slots[index].access(access_counter); 
         return false;
     }
 
-    if(isFull())
-        evictLRU();
-    
+    bool eviction;
+    if(isFull()) {
+        eviction = evictLRU();
+    }
+      
     size_t new_slot_index = findEmptySlot();
-    slots[new_slot_index].store(std::move(track), access_counter); //TO CHECK
-    return true;
+    slots[new_slot_index].store(std::move(track), access_counter); 
+    return eviction;
 }
 
 bool LRUCache::evictLRU() {

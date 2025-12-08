@@ -297,5 +297,5 @@ void DJSession::handle_playlist(std::string playlist_name) {
     }
 
     print_session_summary();
-    stats = SessionStats {};
+    //stats = SessionStats {};
 }

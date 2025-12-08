@@ -72,6 +72,7 @@ Added '9PM (Till I Come)' to playlist 'progressive_house'
   → Load complete.
 [MP3Track::analyze_beatgrid] Analyzing beat grid for: "Silence"
   → Estimated beats: 840  → Compression precision factor: 0.6
+[Sync BPM] Cannot sync - one of the decks is empty.
 [Load Complete] 'Silence' is now loaded on deck 0
 [Active Deck] Switched to deck 0
 
@@ -152,7 +153,7 @@ Session: Interactive Session
 Tracks processed: 3
 Cache hits: 0
 Cache misses: 3
-Cache evictions: 3
+Cache evictions: 0
 Deck A loads: 2
 Deck B loads: 1
 Transitions: 3
@@ -338,13 +339,13 @@ Active Deck: 1
 
 === DJ Session Summary ===
 Session: Interactive Session
-Tracks processed: 5
+Tracks processed: 8
 Cache hits: 5
-Cache misses: 0
+Cache misses: 3
 Cache evictions: 0
-Deck A loads: 2
-Deck B loads: 3
-Transitions: 5
+Deck A loads: 4
+Deck B loads: 4
+Transitions: 8
 Errors: 0
 === Session Complete ===
 [System] Loading playlist: trance_classics
@@ -422,13 +423,13 @@ Active Deck: 1
 
 === DJ Session Summary ===
 Session: Interactive Session
-Tracks processed: 2
-Cache hits: 2
-Cache misses: 0
+Tracks processed: 10
+Cache hits: 7
+Cache misses: 3
 Cache evictions: 0
-Deck A loads: 1
-Deck B loads: 1
-Transitions: 2
+Deck A loads: 5
+Deck B loads: 5
+Transitions: 10
 Errors: 0
 === Session Complete ===
 Session cancelled by user or all playlists played.
