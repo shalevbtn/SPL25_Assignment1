@@ -85,7 +85,7 @@ void DJLibraryService::loadPlaylistFromIndices(const std::string& playlist_name,
         }
         else {
             PointerWrapper<AudioTrack> pw(library[i - 1]->clone());
-            if (pw.get() == nullptr){
+            if (!pw) {
                 std::cout<< "[ERROR] Track Clone Failed Could not clone track at index " << i << std::endl;
             }
             else{

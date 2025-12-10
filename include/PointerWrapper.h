@@ -91,7 +91,7 @@ public:
 
     T& operator*() const {
         if (ptr == nullptr){
-            throw new std::runtime_error("");
+            throw std::runtime_error("Null pointer dereference");
         }
         return *ptr;
     };
@@ -112,9 +112,12 @@ public:
      * @throws std::runtime_error if ptr is null
      */
     T* get() const {
-        if (ptr == nullptr){
+        /*if (ptr == nullptr){
             throw new std::runtime_error("");
-        }
+        }*/ 
+       // My code will crash whenever nullptr
+
+
         return ptr;
     }
 

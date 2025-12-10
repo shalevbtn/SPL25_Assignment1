@@ -187,10 +187,14 @@ void DJSession::simulate_dj_performance() {
     else {
         std::string playlist_name;
 
-        while(playlist_name != "") {
-            playlist_name = display_playlist_menu_from_config();
+        while (true) {
+            std::string playlist_name = display_playlist_menu_from_config();
+            if (playlist_name.empty()) {
+                break; // User selected 0
+            }
             handle_playlist(playlist_name);
         }
+
     }
 
     std::cout << "Session cancelled by user or all playlists played." << std::endl;
