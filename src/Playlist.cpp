@@ -66,7 +66,7 @@ Playlist& Playlist::operator=(Playlist&& other) noexcept
         track_count = other.track_count;
 
         other.head = nullptr;
-        track_count = 0;
+        other.track_count = 0;
     }
 
     return *this;

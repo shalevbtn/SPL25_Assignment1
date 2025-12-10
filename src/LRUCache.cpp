@@ -29,7 +29,7 @@ bool LRUCache::put(PointerWrapper<AudioTrack> track) {
         return false;
     }
 
-    bool eviction;
+    bool eviction = false;
     if(isFull()) {
         eviction = evictLRU();
     }
