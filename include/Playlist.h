@@ -40,7 +40,8 @@ public:
      */
     ~Playlist();
 
-
+    //Rule of 5
+    
     Playlist(const Playlist& other);
     Playlist& operator=(const Playlist& other) = delete;
     
