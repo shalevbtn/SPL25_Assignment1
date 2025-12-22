@@ -16,7 +16,6 @@ AudioTrack* CacheSlot::access(uint64_t access_time) {
     if (!occupied) {
         return nullptr;
     }
-    
     last_access_time = access_time;
     return track.get();
 }

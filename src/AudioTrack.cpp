@@ -32,13 +32,11 @@ AudioTrack::AudioTrack(const std::string& title, const std::vector<std::string>&
 // ========== TODO: STUDENTS IMPLEMENT RULE OF 5 ==========
 
 AudioTrack::~AudioTrack() {
-    // TODO: Implement the destructor
     #ifdef DEBUG
     std::cout << "AudioTrack destructor called for: " << title << std::endl;
     #endif
-    if(waveform_data != nullptr)
-        delete[] waveform_data;
 
+    delete[] waveform_data;
     waveform_data = nullptr;
 }
 
@@ -46,7 +44,6 @@ AudioTrack::AudioTrack(const AudioTrack& other)
     : title(other.title), artists(other.artists), duration_seconds(other.duration_seconds),
      bpm(other.bpm), waveform_data(), waveform_size(other.waveform_size)
 {
-    // TODO: Implement the copy constructor
     #ifdef DEBUG
     std::cout << "AudioTrack copy constructor called for: " << other.title << std::endl;
     #endif
@@ -80,7 +77,6 @@ AudioTrack::AudioTrack(AudioTrack&& other) noexcept
     : title(other.title), artists(other.artists), duration_seconds(other.duration_seconds),
      bpm(other.bpm), waveform_data(), waveform_size(other.waveform_size)
 {
-    // TODO: Implement the move constructor
     #ifdef DEBUG
     std::cout << "AudioTrack move constructor called for: " << other.title << std::endl;
     #endif
@@ -110,7 +106,6 @@ AudioTrack& AudioTrack::operator=(AudioTrack&& other) noexcept {
 }
 
 void AudioTrack::get_waveform_copy(double* buffer, size_t buffer_size) const {
-    
     if (buffer && waveform_data && buffer_size <= waveform_size) {
         std::memcpy(buffer, waveform_data, buffer_size * sizeof(double));
     }

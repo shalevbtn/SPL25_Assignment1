@@ -3,9 +3,6 @@
 #include <memory>
 
 
-/**
- * TODO: Implement MixingEngineService constructor
- */
 MixingEngineService::MixingEngineService()
     : decks(), active_deck(1), auto_sync(false), bpm_tolerance(0)
 {
