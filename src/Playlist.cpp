@@ -2,6 +2,8 @@
 #include "AudioTrack.h"
 #include <iostream>
 #include <algorithm>
+#include <stdexcept>
+#include <vector>
 
 Playlist::Playlist(const std::string& name) : head(nullptr), playlist_name(name), track_count(0) {
     std::cout << "Created playlist: " << name << std::endl;
@@ -28,16 +30,23 @@ Playlist::~Playlist() {
 Playlist::Playlist(const Playlist& other) 
     : head(nullptr), playlist_name(other.playlist_name), track_count(0) 
 {
+    std::vector<AudioTrack*> sourceTracks;
     PlaylistNode* currentSource = other.head;
     
-    while (currentSource != nullptr) {
-        PointerWrapper<AudioTrack> clonedWrapper = currentSource->track->clone();
 
-        if (clonedWrapper.get() != nullptr) 
-             this->add_track(clonedWrapper.release());
-             
+    while (currentSource != nullptr) {
+        sourceTracks.push_back(currentSource->track);
         currentSource = currentSource->next;
     }
+
+    //Matching the order of the tracks to the prints by reversing it
+    for (int i = static_cast<int>(sourceTracks.size()) - 1; i >= 0; --i) {
+        PointerWrapper<AudioTrack> clonedWrapper = sourceTracks[i]->clone();
+        if (clonedWrapper) {
+            this->add_track(clonedWrapper.release());
+        }
+    }
+
 }
 
 Playlist& Playlist::operator=(Playlist&& other) noexcept 

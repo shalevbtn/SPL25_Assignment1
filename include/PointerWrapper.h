@@ -102,9 +102,12 @@ public:
      * What safety checks should you perform?
      */
     T* operator->() const {
+       if (ptr == nullptr){
+            throw std::runtime_error("Null pointer dereference");
+        }
         return ptr;
     }
-
+    
     /**
      * TODO: Implement get() function
      * HINT: Sometimes you need access to the raw pointer without changing ownership
@@ -112,12 +115,9 @@ public:
      * @throws std::runtime_error if ptr is null
      */
     T* get() const {
-        /*if (ptr == nullptr){
-            throw new std::runtime_error("");
-        }*/ 
-       // My code will crash whenever nullptr
-
-
+       if (ptr == nullptr){
+            throw std::runtime_error("Null pointer dereference");
+        }
         return ptr;
     }
 
@@ -184,10 +184,7 @@ PointerWrapper<T> make_pointer_wrapper(Args&&... args) {
  */
 template<typename T>
 void swap(PointerWrapper<T>& lhs, PointerWrapper<T>& rhs) noexcept {
-    // TODO: Implement global swap function
-    // HINT: You can use the member swap function
-    //your code here...
-    std::swap(lhs.ptr, rhs.ptr);
+    lhs.swap(rhs);
 }
 
 #endif // POINTERWRAPPER_H
