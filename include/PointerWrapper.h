@@ -153,7 +153,7 @@ public:
      * Why might the explicit keyword be important here?
      */
     explicit operator bool() const {
-        return ptr != nullptr; //placeholder
+        return ptr != nullptr;
     }
 
     /**

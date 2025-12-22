@@ -43,9 +43,10 @@ public:
     //Rule of 5
     
     Playlist(const Playlist& other);
+
     Playlist& operator=(const Playlist& other) = delete;
-    
-    Playlist(Playlist&& other) noexcept;
+    Playlist(Playlist&& other) noexcept = delete;
+
     Playlist& operator=(Playlist&& other) noexcept;
 
     /**

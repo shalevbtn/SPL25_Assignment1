@@ -36,8 +36,9 @@ AudioTrack::~AudioTrack() {
     #ifdef DEBUG
     std::cout << "AudioTrack destructor called for: " << title << std::endl;
     #endif
-    
-    delete[] waveform_data;
+    if(waveform_data != nullptr)
+        delete[] waveform_data;
+
     waveform_data = nullptr;
 }
 
@@ -68,6 +69,7 @@ AudioTrack& AudioTrack::operator=(const AudioTrack& other) {
         duration_seconds = other.duration_seconds;
         bpm = other.bpm; 
         waveform_size = other.waveform_size;
+        waveform_data = new double[waveform_size];
         other.get_waveform_copy(waveform_data, waveform_size);
     }
     

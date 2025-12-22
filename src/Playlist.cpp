@@ -40,13 +40,6 @@ Playlist::Playlist(const Playlist& other)
     }
 }
 
-Playlist::Playlist(Playlist&& other) noexcept
-    : head(other.head), playlist_name(std::move(other.playlist_name)), track_count(other.track_count) 
-{ 
-    other.head = nullptr;
-    other.track_count = 0;
-}
-
 Playlist& Playlist::operator=(Playlist&& other) noexcept 
 {
     if(this != &other) {
